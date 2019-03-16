@@ -37,3 +37,8 @@ sysinfo.txt
 
 /Assets/Plugins/Editor/JetBrains/
 /Assets/Plugins/Editor/JetBrains.meta
+
+/Assets/Scenes/TestScene.unity
+/Assets/Scenes/TestScene.unity.meta
+/Assets/Scenes/TestScene/
+/Assets/Scenes/TestScene.meta
