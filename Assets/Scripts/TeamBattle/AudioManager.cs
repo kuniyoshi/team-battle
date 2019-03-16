@@ -30,7 +30,11 @@ namespace TeamBattle
         void Awake()
         {
             AssertSerializeFieldValid();
-            BgmWorker.Initialize(BgmAudioSources);
+            BgmWorker.Initialize(
+                BgmAudioSources[0],
+                BgmAudioSources[1],
+                BgmAudioSources[2]
+            );
             VoiceWorker.Initialize(VoiceAudioSources);
             SeWorker.Initialize(SeAudioSources);
         }
@@ -70,6 +74,8 @@ namespace TeamBattle
                 SeAudioSources.Count,
                 new HashSet<AudioSource>(SeAudioSources).Count
             );
+
+            Assert.AreEqual(3, BgmAudioSources.Count);
         }
 
     }

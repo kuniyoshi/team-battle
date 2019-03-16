@@ -1,7 +1,5 @@
-using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
-using UnityEngine.Assertions;
 
 namespace TeamBattle.GatheringInner.AudioManager
 {
@@ -31,12 +29,13 @@ namespace TeamBattle.GatheringInner.AudioManager
         
         #endregion
 
-        public void Initialize(List<AudioSource> audioSources)
+        public void Initialize(AudioSource mainSource,
+                               AudioSource standbySource,
+                               AudioSource stoppingSource)
         {
-            Assert.AreEqual(3, audioSources.Count);
-            _mainSource = audioSources[0];
-            _standbySource = audioSources[1];
-            _stoppingSource = audioSources[2];
+            _mainSource = mainSource;
+            _standbySource = standbySource;
+            _stoppingSource = stoppingSource;
         }
 
         public void CrossFade(AudioClip audioClip)
