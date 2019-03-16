@@ -54,7 +54,7 @@ namespace TeamBattle.GatheringInner.AudioManager
                 return;
             }
             
-            sameClip.NullPropagation()?.Stop();
+            sameClip.Nullable()?.Stop();
         }
 
     }
