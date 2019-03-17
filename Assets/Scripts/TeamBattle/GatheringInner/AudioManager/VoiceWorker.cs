@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
-using TeamBattle.Extension;
 using UnityEngine;
 
 namespace TeamBattle.GatheringInner.AudioManager
@@ -10,7 +9,9 @@ namespace TeamBattle.GatheringInner.AudioManager
     public class VoiceWorker
     {
 
-        const float FadeDuration = 0.1f;
+        const float FadeInDuration = 0.1f;
+        
+        const float FadeOutDuration = 0.1f;
 
         List<AudioSource> _audioSources;
         
@@ -41,7 +42,7 @@ namespace TeamBattle.GatheringInner.AudioManager
             }
 
             usable.clip = voice;
-            usable.DOFade(1f, FadeDuration);
+            usable.DOFade(1f, FadeInDuration);
             usable.Play();
         }
 
@@ -53,8 +54,9 @@ namespace TeamBattle.GatheringInner.AudioManager
             {
                 return;
             }
-            
-            sameClip.Nullable()?.Stop();
+
+            sameClip.DOFade(0f, FadeOutDuration)
+                .OnComplete(() => sameClip.Stop());
         }
 
     }
